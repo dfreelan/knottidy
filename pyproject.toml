@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "knottidy"
+version = "0.1.0"
+description = "Knot theory toolkit: braid words, PD/DT/Gauss codes, Jones polynomial, and Reidemeister-adjacent moves."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "knottidy contributors" }]
+keywords = [
+    "knot-theory",
+    "braid-group",
+    "jones-polynomial",
+    "planar-diagram",
+    "dowker-thistlethwaite",
+    "topology",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[project.scripts]
+knottidy = "knottidy.cli:main"
+
+[project.urls]
+Homepage = "https://example.com/knottidy"
+Documentation = "https://example.com/knottidy"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+knottidy = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["knottidy"]
